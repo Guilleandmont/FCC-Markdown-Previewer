@@ -1,0 +1,87 @@
+import { FaEdit, FaPlay, FaFont } from "https://cdn.skypack.dev/react-icons/fa";
+
+/* render() {
+    return (
+      <div dangerouslySetInnerHTML={{
+          __html: marked("## Hello from React")}} />
+    )
+  }
+}*/
+
+const ClearBtn = (props) => {
+	return (
+		<button className="clear-btn" onClick="clear">
+			Clear
+		</button>
+	);
+};
+
+const ShowBtn = (props) => {
+	return (
+		<button className="show-preview-btn" onClick="show">
+			<FaPlay className="icon" />
+		</button>
+	);
+};
+
+const ChangeFontBtn = (props) => {
+	return (
+		<button className="change-font-btn" onClick="change">
+			<FaFont className="icon" />
+		</button>
+	);
+};
+
+class Editor extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+	render() {
+		return (
+			<section>
+				<h2>Editor</h2>
+				<ClearBtn />
+				<ShowBtn />
+				<textarea id="editor"></textarea>
+			</section>
+		);
+	}
+}
+
+class Preview extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+	render() {
+		return (
+			<section className="hide">
+				<h2>Preview</h2>
+				<ChangeFontBtn />
+				<ShowBtn />
+				<div id="preview" className="sans">
+					This is text
+				</div>
+			</section>
+		);
+	}
+}
+
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			input: ""
+		};
+	}
+
+	render() {
+		return (
+			<>
+				<Editor />
+				<Preview />
+			</>
+		);
+	}
+}
+
+ReactDOM.render(<App />, document.getElementById("app"));

@@ -1,0 +1,155 @@
+//Import fonts from Google
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&family=Fira+Mono&family=Roboto&family=Ubuntu:wght@500&display=swap");
+
+//Mixins
+@mixin for-mobile {
+	@media (max-width: 900px) {
+		@content;
+	}
+}
+
+@mixin for-desktop {
+	@media (min-width: 901px) {
+		@content;
+	}
+}
+
+//Variables:
+$main-color: #222235;
+$field-color: #3c3c50;
+$text-color: #eee;
+$green-color: #44ccaa;
+$red-color: #f23f3f;
+$header-font: "Ubuntu", sans-serif;
+$editor-font: "Fira Mono", monospace;
+$sans-font: "Roboto", sans-serif;
+$serif-font: "EB Garamond", serif;
+
+//Applying the styles
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	line-height: 1.2;
+	background-color: $main-color;
+	color: $text-color;
+}
+
+main {
+	padding: 35px;
+}
+
+section {
+	display: flex;
+	justify-content: right;
+	flex-wrap: wrap;
+
+	& > h2 {
+		margin-right: auto;
+		justify-self: flex-start;
+		font-family: $header-font;
+		font-size: 36px;
+	}
+
+	& > button {
+		align-self: center;
+		border-style: none;
+		cursor: pointer;
+		&:active {
+			position: relative;
+			top: 2.5px;
+		}
+	}
+	& .clear-btn {
+		width: 70px;
+		height: 35px;
+		margin-right: 20px;
+		border-radius: 20px;
+		background-color: $red-color;
+	}
+
+	& .show-preview-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 35px;
+		height: 35px;
+		background-color: $green-color;
+		border-radius: 50%;
+		padding-left: 5px;
+
+		& .icon {
+			background-color: #00000000;
+		}
+	}
+
+	& .change-font-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-right: 20px;
+		background-color: red;
+		width: 35px;
+		height: 35px;
+
+		& > .icon {
+			width: 35px;
+			height: 35px;
+		}
+	}
+}
+
+textarea {
+	min-width: 100%;
+	min-height: 80vh;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 16px;
+	border-style: none;
+	background-color: $field-color;
+	font-family: $editor-font;
+	transition: outline-color 0.5s ease;
+
+	&:focus {
+		//fix this
+		outline-style: solid;
+		outline-color: $green-color;
+	}
+}
+
+#preview {
+	min-width: 100%;
+	min-height: 80vh;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 16px;
+	border-style: none;
+	background-color: $field-color;
+
+	& > * {
+		background-color: #00000000;
+	}
+}
+
+//classes for font change
+.sans {
+	font-family: $sans-font;
+}
+
+.serif {
+	font-family: $serif-font;
+}
+
+//Responsive styles
+@include for-desktop {
+	main {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+@include for-mobile {
+	.hide {
+		display: none;
+	}
+}

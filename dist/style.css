@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&family=Fira+Mono&family=Roboto&family=Ubuntu:wght@500&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  background-color: #222235;
+  color: #eee;
+}
+
+main {
+  padding: 35px;
+}
+
+section {
+  display: flex;
+  justify-content: right;
+  flex-wrap: wrap;
+}
+section > h2 {
+  margin-right: auto;
+  justify-self: flex-start;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 36px;
+}
+section > button {
+  align-self: center;
+  border-style: none;
+  cursor: pointer;
+}
+section > button:active {
+  position: relative;
+  top: 2.5px;
+}
+section .clear-btn {
+  width: 70px;
+  height: 35px;
+  margin-right: 20px;
+  border-radius: 20px;
+  background-color: #f23f3f;
+}
+section .show-preview-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  background-color: #44ccaa;
+  border-radius: 50%;
+  padding-left: 5px;
+}
+section .show-preview-btn .icon {
+  background-color: #00000000;
+}
+section .change-font-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  background-color: red;
+  width: 35px;
+  height: 35px;
+}
+section .change-font-btn > .icon {
+  width: 35px;
+  height: 35px;
+}
+
+textarea {
+  min-width: 100%;
+  min-height: 80vh;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 16px;
+  border-style: none;
+  background-color: #3c3c50;
+  font-family: "Fira Mono", monospace;
+  transition: outline-color 0.5s ease;
+}
+textarea:focus {
+  outline-style: solid;
+  outline-color: #44ccaa;
+}
+
+#preview {
+  min-width: 100%;
+  min-height: 80vh;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 16px;
+  border-style: none;
+  background-color: #3c3c50;
+}
+#preview > * {
+  background-color: #00000000;
+}
+
+.sans {
+  font-family: "Roboto", sans-serif;
+}
+
+.serif {
+  font-family: "EB Garamond", serif;
+}
+
+@media (min-width: 901px) {
+  main {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media (max-width: 900px) {
+  .hide {
+    display: none;
+  }
+}
