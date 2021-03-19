@@ -32,8 +32,11 @@ $serif-font: "EB Garamond", serif;
 	margin: 0;
 	padding: 0;
 	line-height: 1.2;
-	background-color: $main-color;
 	color: $text-color;
+}
+
+body {
+	background-color: $main-color;
 }
 
 main {
@@ -44,10 +47,10 @@ section {
 	display: flex;
 	justify-content: right;
 	flex-wrap: wrap;
+	height: 100vh;
 
 	& > h2 {
 		margin-right: auto;
-		justify-self: flex-start;
 		font-family: $header-font;
 		font-size: 36px;
 	}
@@ -89,9 +92,9 @@ section {
 		align-items: center;
 		justify-content: center;
 		margin-right: 20px;
-		background-color: red;
 		width: 35px;
 		height: 35px;
+		background-color: $main-color;
 
 		& > .icon {
 			width: 35px;
@@ -100,39 +103,57 @@ section {
 	}
 }
 
-textarea {
+//Editor styles
+#editor {
 	min-width: 100%;
-	min-height: 80vh;
+	height: 100%;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	padding: 16px;
 	border-style: none;
 	background-color: $field-color;
 	font-family: $editor-font;
+	overflow-y: auto;
 	transition: outline-color 0.5s ease;
 
 	&:focus {
-		//fix this
 		outline-style: solid;
 		outline-color: $green-color;
 	}
 }
 
+//Markdown styles
 #preview {
 	min-width: 100%;
-	min-height: 80vh;
+	height: 100%;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	padding: 16px;
 	border-style: none;
 	background-color: $field-color;
+	overflow-y: auto;
 
 	& > * {
 		background-color: #00000000;
+		margin: 5px 0 5px 15px;
+	}
+
+	& blockquote,
+	pre {
+		min-height: 50px;
+		padding-left: 10px;
+		border-left: 3px solid $green-color;
+		background-color: $main-color;
+		overflow-x: auto;
+	}
+
+	& img {
+		width: 100%;
+		height: auto;
 	}
 }
 
-//classes for font change
+//classes to change typefaces
 .sans {
 	font-family: $sans-font;
 }
@@ -146,6 +167,19 @@ textarea {
 	main {
 		display: flex;
 		justify-content: space-between;
+
+		& > section {
+			width: 100%;
+		}
+
+		& > :first-child {
+			margin-right: 25px;
+			position: relative;
+		}
+
+		.show-preview-btn {
+			display: none;
+		}
 	}
 }
 @include for-mobile {

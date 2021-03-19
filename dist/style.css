@@ -4,8 +4,11 @@
   margin: 0;
   padding: 0;
   line-height: 1.2;
-  background-color: #222235;
   color: #eee;
+}
+
+body {
+  background-color: #222235;
 }
 
 main {
@@ -16,10 +19,10 @@ section {
   display: flex;
   justify-content: right;
   flex-wrap: wrap;
+  height: 100vh;
 }
 section > h2 {
   margin-right: auto;
-  justify-self: flex-start;
   font-family: "Ubuntu", sans-serif;
   font-size: 36px;
 }
@@ -57,42 +60,57 @@ section .change-font-btn {
   align-items: center;
   justify-content: center;
   margin-right: 20px;
-  background-color: red;
   width: 35px;
   height: 35px;
+  background-color: #222235;
 }
 section .change-font-btn > .icon {
   width: 35px;
   height: 35px;
 }
 
-textarea {
+#editor {
   min-width: 100%;
-  min-height: 80vh;
+  height: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 16px;
   border-style: none;
   background-color: #3c3c50;
   font-family: "Fira Mono", monospace;
+  overflow-y: auto;
   transition: outline-color 0.5s ease;
 }
-textarea:focus {
+#editor:focus {
   outline-style: solid;
   outline-color: #44ccaa;
 }
 
 #preview {
   min-width: 100%;
-  min-height: 80vh;
+  height: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 16px;
   border-style: none;
   background-color: #3c3c50;
+  overflow-y: auto;
 }
 #preview > * {
   background-color: #00000000;
+  margin: 5px 0 5px 15px;
+}
+#preview blockquote,
+#preview pre {
+  min-height: 50px;
+  padding-left: 10px;
+  border-left: 3px solid #44ccaa;
+  background-color: #222235;
+  overflow-x: auto;
+}
+#preview img {
+  width: 100%;
+  height: auto;
 }
 
 .sans {
@@ -107,6 +125,16 @@ textarea:focus {
   main {
     display: flex;
     justify-content: space-between;
+  }
+  main > section {
+    width: 100%;
+  }
+  main > :first-child {
+    margin-right: 25px;
+    position: relative;
+  }
+  main .show-preview-btn {
+    display: none;
   }
 }
 @media (max-width: 900px) {
